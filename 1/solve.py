@@ -5,9 +5,9 @@ x = 0
 y = 0
 
 for line in file:
-    for command in line.split():
+    for command in [com.strip() for com in line.split(',')]:
         direction = command[0]
-        distance = int(command[1])
+        distance = int(command[1:])
         new_dir = 90 if direction == "R" else -90
         current_direction = (current_direction + new_dir) % 360
         if current_direction == 0:
